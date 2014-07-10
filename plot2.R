@@ -10,8 +10,12 @@ data$DT <-strptime(x, "%d/%m/%Y %H:%M:%S")
 
 #create plot in png file
 #xaxt="n" is there because of the local language settings. Since I'm using non-english
-#settings, the days labels are not in english, therefore I create plot without the 
-#x-label and then I manually add the labels.
+#system, the days labels are not in english, therefore First I created plot without the 
+#x-label and then I manually added the labels. 
+#The command:
+#plot(data$DT, data$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab="")
+#will create plot using the defalut langugae settings
+
 png("plot2.png",width=480, height=480)
 plot(data$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab="", xaxt="n")
 axis(1, at=c(1, 1440, 2880), labels=c("Thu", "Fri", "Sat"))
